@@ -9,10 +9,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build image
         run: |
-          docker build --progress=plain -t pyenv-virtualenv .
+          docker build --progress=plain -t benchmark .
       - name: conda
         run: |
-          docker run --rm --workdir /app -v $(pwd):/app pyenv-virtualenv bash build-conda.sh
+          docker run --rm --workdir /app -v $(pwd):/app benchmark bash build-conda.sh
       - name: pyenv + virtualenv
         run: |
-          docker run --rm --workdir /app -v $(pwd):/app pyenv-virtualenv bash build-virtualenv.sh
+          docker run --rm --workdir /app -v $(pwd):/app benchmark bash build-virtualenv.sh

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -ex
 
 eval "$(pyenv init -)"
 
@@ -8,5 +9,4 @@ pyenv install --skip-existing $python_version
 virtualenv --python $(pyenv prefix $python_version)/bin/python $env_name
 source $env_name/bin/activate
 
-# Install dependencies
 pip install -r requirements.txt

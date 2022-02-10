@@ -1,0 +1,7 @@
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7.12
+  - pip
+  - pip:
+      - scikit-learn==1.0.2

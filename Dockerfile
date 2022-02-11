@@ -14,8 +14,8 @@ ENV PYENV_ROOT="/root/.pyenv"
 ENV PATH="$PYENV_ROOT/bin:$PATH"
 RUN eval "$(pyenv init --path)" \
     && pyenv install 3.8.10 \
-    && pyenv global 3.8.10
-RUN eval "$(pyenv init --path)" && pip install virtualenv
+    && pyenv global 3.8.10 \
+    && pip install virtualenv
 
 RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /root/miniconda3

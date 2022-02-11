@@ -1,0 +1,18 @@
+name: Benchmark
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Benchmark
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build image
+        run: |
+          docker build --progress=plain -t benchmark .
+      - name: conda
+        run: |
+          docker run --rm --workdir /app -v $(pwd):/app benchmark bash build-conda.sh
+      - name: pyenv + virtualenv
+        run: |
+          docker run --rm --workdir /app -v $(pwd):/app benchmark bash build-virtualenv.sh
